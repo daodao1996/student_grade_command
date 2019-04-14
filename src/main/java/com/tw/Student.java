@@ -39,7 +39,8 @@ public class Student {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public float getTotal(){
+        return total;
     }
+
 }
