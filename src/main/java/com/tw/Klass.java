@@ -8,39 +8,43 @@ import java.util.Map;
 public class Klass {
     private String className;
     private Map<String,Student> students = new HashMap<>();
-    private List<Float> gradesList = new ArrayList<>();
 
     public void addStudent(Student s){
         this.students.put(s.getId(),s);
-        gradesList.add(s.getTotal());
     }
 
-    public float getAverage(){
-        return gradesList.stream().reduce((a,b) -> a+b).get();
+    public float getAverage(List<Float> l){
+        return l.stream().reduce((a,b) -> a+b).get();
     }
 
-    public float getMedian(){
-        if(gradesList.size() % 2 != 0){
-            return gradesList.get( (gradesList.size()-1) / 2);
+    public float getMedian(List<Float> l){
+        if(l.size() > 1){
+            l.stream().sorted();
+            if(l.size() % 2 != 0){
+                return l.get( (l.size()-1) / 2);
+            }else{
+                return (l.get(l.size()/2) +
+                        l.get(l.size()/2 - 1))/2;
+            }
         }else{
-            return (gradesList.get(gradesList.size()/2) +
-                    gradesList.get(gradesList.size()/2 - 1))/2;
+            return l.get(0);
         }
     }
 
-    @Override
-    public String toString() {
+    public String getGradeListById(List<String> studentID) {
+        List<Float> totalList = new ArrayList<>();
         String result="成绩单\n" +
                 "姓名|数学|语文|英语|编程|平均分|总分\n" +
                 "========================\n";
-        StringBuffer studentGrades = new StringBuffer();
-        for(Map.Entry<String,Student> entry : students.entrySet()){
-            studentGrades.append(entry.toString());
+        StringBuilder studentGrades = new StringBuilder();
+        for(String id : studentID){
+            studentGrades.append(students.get(id).toString());
+            totalList.add(students.get(id).getTotal());
         }
 
         return result + studentGrades + "========================\n" +
-                "全班总分平均数："+ getAverage() +
-                "\n全班总分中位数："+getMedian();
+                "全班总分平均数："+ getAverage(totalList) +
+                "\n全班总分中位数："+getMedian(totalList);
     }
 
     public String getClassName() {
