@@ -43,4 +43,7 @@ public class Student {
         return total;
     }
 
+    public String getName(){
+        return name;
+    }
 }

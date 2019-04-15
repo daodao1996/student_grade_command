@@ -9,8 +9,9 @@ public class Klass {
     private String className;
     private Map<String,Student> students = new HashMap<>();
 
-    public void addStudent(Student s){
+    public String addStudent(Student s){
         this.students.put(s.getId(),s);
+        return s.getName();
     }
 
     public float getAverage(List<Float> l){
