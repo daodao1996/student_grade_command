@@ -26,13 +26,13 @@ public class Format {
                         math = Float.parseFloat(subjectInfo[1]);
                     }
                     else if(subjectInfo[0].equals("语文")){
-                        chinese = Float.parseFloat(studentInfo[1]);
+                        chinese = Float.parseFloat(subjectInfo[1]);
                     }
                     else if(subjectInfo[0].equals("英语")){
-                        english = Float.parseFloat(studentInfo[1]);
+                        english = Float.parseFloat(subjectInfo[1]);
                     }
                     else if(subjectInfo[0].equals("编程")){
-                        code = Float.parseFloat(studentInfo[1]);
+                        code = Float.parseFloat(subjectInfo[1]);
                     }
                     else{
                         return null;

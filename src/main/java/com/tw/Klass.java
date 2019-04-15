@@ -15,7 +15,7 @@ public class Klass {
     }
 
     public float getAverage(List<Float> l){
-        return l.stream().reduce((a,b) -> a+b).get();
+        return l.stream().reduce((a,b) -> a+b).get() / l.size();
     }
 
     public float getMedian(List<Float> l){
