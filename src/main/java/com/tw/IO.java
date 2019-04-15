@@ -11,7 +11,7 @@ public class IO {
             if (i.startsWith("1")) {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("请输入学生信息" +
-                        "（格式：姓名, 学号, 学科: 成绩, ...），按回车提交：");
+                        "（格式：姓名, 学号, 民族, 班级, 学科: 成绩, ...），按回车提交：");
                 String input = sc.nextLine();
                 Student s = new Format(input).judgeInputFormatAddStudent();
                 if(s != null){
@@ -19,7 +19,7 @@ public class IO {
                     return "学生"+stuName+"的成绩被添加";
                 }else {
                     return "请按正确的格式输入" +
-                            "（格式：姓名, 学号, 学科: 成绩, ...）：";
+                            "（格式：姓名, 学号, 民族, 班级, 学科: 成绩, ...）：";
                 }
             } else if (i.startsWith("2")) {
                 Scanner sc = new Scanner(System.in);
