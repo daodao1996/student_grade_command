@@ -15,11 +15,22 @@ public class Format {
         String pattern = "(.+;.+)|(.+/..+)|(.+&.+)|(.+!.+)";
         String patternNumber = "[0-9]{1,2}.?[0-9]*";
         String[] studentInfo;
+        float math=0,chinese=0,english = 0,code=0;
         if(!Pattern.matches(pattern,input) && input.split(",").length == 8){
             studentInfo = input.split(",");
             for(int iter=4;iter<studentInfo.length;iter++){
                 if(Pattern.matches(patternNumber,studentInfo[iter].split(":")[1])){
-                    studentInfo[iter] = studentInfo[iter].split(":")[1];
+                    String[] subjectInfo = studentInfo[iter].split(":");
+                    if(subjectInfo[0] == "数学")
+                        math = Float.parseFloat(subjectInfo[1]);
+                    else if(subjectInfo[0] == "语文")
+                        chinese = Float.parseFloat(studentInfo[1]);
+                    else if(subjectInfo[0] == "英语")
+                        english = Float.parseFloat(studentInfo[1]);
+                    else if(subjectInfo[0] == "编程")
+                        code = Float.parseFloat(studentInfo[1]);
+                    else
+                        return null;
                 }else{
                     return null;
                 }
@@ -28,9 +39,8 @@ public class Format {
             return null;
         }
 
-        return new Student(studentInfo[0],studentInfo[1],studentInfo[2],studentInfo[3],
-                Float.parseFloat(studentInfo[4]),Float.parseFloat(studentInfo[5]),
-                Float.parseFloat(studentInfo[6]),Float.parseFloat(studentInfo[7]));
+        return new Student(studentInfo[0],studentInfo[1],studentInfo[2],
+                studentInfo[3], math,chinese, english,code);
     }
 
     public List<String> judgeInputFormatSearchGrade(){
