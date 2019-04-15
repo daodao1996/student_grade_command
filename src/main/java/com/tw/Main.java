@@ -10,6 +10,7 @@ public class Main {
         while ((scanner.hasNextLine())){
             String s = scanner.nextLine();
             System.out.println(io.input(s));
+            io.showMenu();
         }
     }
 }

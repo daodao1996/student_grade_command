@@ -45,7 +45,7 @@ public class Klass {
             }
         }
 
-        return result + studentGrades + "========================\n" +
+        return result + studentGrades + "\n========================\n" +
                 "全班总分平均数："+ getAverage(totalList) +
                 "\n全班总分中位数："+getMedian(totalList);
     }
