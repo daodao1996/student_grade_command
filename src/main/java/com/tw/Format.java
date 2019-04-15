@@ -15,22 +15,28 @@ public class Format {
         String pattern = "(.+;.+)|(.+/..+)|(.+&.+)|(.+!.+)";
         String patternNumber = "[0-9]{1,2}.?[0-9]*";
         String[] studentInfo;
+        String[] subjectInfo;
         float math=0,chinese=0,english = 0,code=0;
         if(!Pattern.matches(pattern,input) && input.split(",").length == 8){
             studentInfo = input.split(",");
-            for(int iter=4;iter<studentInfo.length;iter++){
-                if(Pattern.matches(patternNumber,studentInfo[iter].split(":")[1])){
-                    String[] subjectInfo = studentInfo[iter].split(":");
-                    if(subjectInfo[0] == "数学")
+            for(int iter=4;iter<8;iter++){
+                subjectInfo = studentInfo[iter].split(":");
+                if(Pattern.matches(patternNumber,subjectInfo[1])){
+                    if(subjectInfo[0].equals("数学")){
                         math = Float.parseFloat(subjectInfo[1]);
-                    else if(subjectInfo[0] == "语文")
+                    }
+                    else if(subjectInfo[0].equals("语文")){
                         chinese = Float.parseFloat(studentInfo[1]);
-                    else if(subjectInfo[0] == "英语")
+                    }
+                    else if(subjectInfo[0].equals("英语")){
                         english = Float.parseFloat(studentInfo[1]);
-                    else if(subjectInfo[0] == "编程")
+                    }
+                    else if(subjectInfo[0].equals("编程")){
                         code = Float.parseFloat(studentInfo[1]);
-                    else
+                    }
+                    else{
                         return null;
+                    }
                 }else{
                     return null;
                 }
@@ -53,4 +59,12 @@ public class Format {
         }
         return studentsId;
     }
+
+//    private float getSubjectScore(String[] stuScores,String goalSubject){
+//        String[] subjectInfo = input.split(":");
+//        if()
+//    }
 }
+
+
+//tom,2015,汉族,1,语文:90,数学:100,英语:88,编程:100
