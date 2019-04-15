@@ -38,8 +38,10 @@ public class Klass {
                 "========================\n";
         StringBuilder studentGrades = new StringBuilder();
         for(String id : studentID){
-            studentGrades.append(students.get(id).toString());
-            totalList.add(students.get(id).getTotal());
+            if(students.containsKey(id)){
+                studentGrades.append(students.get(id).toString());
+                totalList.add(students.get(id).getTotal());
+            }
         }
 
         return result + studentGrades + "========================\n" +
