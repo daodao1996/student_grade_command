@@ -40,12 +40,12 @@ public class Klass {
         StringBuilder studentGrades = new StringBuilder();
         for(String id : studentID){
             if(students.containsKey(id)){
-                studentGrades.append(students.get(id).toString());
+                studentGrades.append(students.get(id).toString()+"\n");
                 totalList.add(students.get(id).getTotal());
             }
         }
 
-        return result + studentGrades + "\n========================\n" +
+        return result + studentGrades + "========================\n" +
                 "全班总分平均数："+ getAverage(totalList) +
                 "\n全班总分中位数："+getMedian(totalList);
     }
