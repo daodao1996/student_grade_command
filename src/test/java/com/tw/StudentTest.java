@@ -2,16 +2,8 @@ package com.tw;
 
 import org.junit.Test;
 
-import java.util.LinkedList;
-
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-
-// name + '|' + math + '|' + chinese +
-//                "|" + english + "|" + code + "|" + total/4 +
-//                "|" + total
 public class StudentTest {
     @Test
     public void testStudentToString() {

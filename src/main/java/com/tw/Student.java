@@ -21,7 +21,7 @@ public class Student {
         this.chinese = chinese;
         this.english = english;
         this.code = code;
-        if(nation == "汉族"){
+        if(nation.equals("汉族")){
             this.total = math+chinese+english+code;
         }else{
             this.total = math+chinese+english+code+10;

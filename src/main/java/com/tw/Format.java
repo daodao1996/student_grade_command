@@ -59,11 +59,6 @@ public class Format {
         }
         return studentsId;
     }
-
-//    private float getSubjectScore(String[] stuScores,String goalSubject){
-//        String[] subjectInfo = input.split(":");
-//        if()
-//    }
 }
 
 
