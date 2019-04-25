@@ -1,5 +1,6 @@
 package com.tw;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +10,8 @@ public class Klass {
     private String className;
     private Map<String,Student> students = new HashMap<>();
 
-    public String addStudent(Student s){
+
+    public String addStudent(Student s) throws IOException {
         this.students.put(s.getId(),s);
         return s.getName();
     }

@@ -27,7 +27,12 @@ public class Student {
             this.total = math+chinese+english+code+10;
         }
     }
-//    姓名|数学|语文|英语|编程|平均分|总分
+
+    public String getInformation(){
+        return this.name+" "+this.id+" "+this.nation+" "+this.className
+        +" "+this.math+" "+this.chinese+" "+this.english+" "+this.code;
+    }
+
     @Override
     public String toString() {
         return  name + '|' + math + '|' + chinese +
@@ -45,5 +50,9 @@ public class Student {
 
     public String getName(){
         return name;
+    }
+
+    public String getClassName(){
+        return className;
     }
 }

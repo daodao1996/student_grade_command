@@ -1,5 +1,6 @@
 package com.tw;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ import static java.lang.System.out;
 
 public class IO {
     Klass klass = new Klass();
-        public String input(String i) {
+        public String input(String i) throws IOException {
             if (i.startsWith("1")) {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("请输入学生信息" +
